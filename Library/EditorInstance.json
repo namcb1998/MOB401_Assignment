@@ -1,4 +1,8 @@
 {
-	"process_id" : 9250,
-	"version" : "2018.1.0f2"
+  "process_id": 11833,
+  "version": "2018.1.0f2",
+  "app_path": "/opt/Unity-2018.1.0f2/Editor/Unity",
+  "app_contents_path": "/opt/Unity-2018.1.0f2/Editor/Data",
+  "attach_allowed": "True",
+  "is_loaded_from_assets": "True",
 }
