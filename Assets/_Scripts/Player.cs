@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        freshJumpForce = jumpForceAbs * 4.7f;
+        freshJumpForce = jumpForceAbs * 4.9f;
         canJump = false;
         jumpForce = jumpForceAbs;
         _animator = GetComponent<Animator>();
@@ -71,21 +71,17 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKey(KeyCode.Space)&&isFreshJump)
-        {
-            
-        }
+        
         if (Input.GetKey(KeyCode.Space) && isFreshJump)
         {
             if (lastTimePressedSpace<Time.time-0.3f)
             {
-                isFreshJump = false;
-                lastTimePressedSpace = Time.time;
                 GetComponent<AudioSource>().PlayOneShot(_audioClips[0]);
-                _rigidbody2D.AddForce(Vector2.up * freshJumpForce*4, ForceMode2D.Force);
-
             }
-            
+            isFreshJump = false;
+            lastTimePressedSpace = Time.time;
+                
+            _rigidbody2D.AddForce(Vector2.up * freshJumpForce, ForceMode2D.Force);
 
         }
         else if (Input.GetKey(KeyCode.Space) && canJump)
@@ -101,7 +97,7 @@ public class Player : MonoBehaviour
 
         if (!isGround)
         {
-            jumpForce -= 2f;
+            jumpForce -= 1.9f;
             if (jumpForce < 0)
             {
                 jumpForce = 0;

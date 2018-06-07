@@ -53,9 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\DestroyRespawn.cs" />
     <Compile Include="Assets\_Scripts\MovingGround.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
     <Compile Include="Assets\_Scripts\ScrollBackground.cs" />
+    <Compile Include="Assets\_Scripts\SpawnObject.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/mnt/FastData/Blended Learning/2018-SUMMER/AdvancedGame 2D/MOB401_Assignment/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
