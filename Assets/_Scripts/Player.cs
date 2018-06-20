@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,8 +18,16 @@ public class Player : MonoBehaviour
     private Animator _animator;
 
     private float lastTimePressedSpace;
+    private float lastTimeLanding;
+
     [SerializeField] private AudioClip[] _audioClips;
     // 0 jump , 1 superhero landing , 3 coin
+
+    private int coinCount;
+    [SerializeField]private Text txtCoin;
+    [SerializeField]private Text txtScore;
+    
+
 
     // Use this for initialization
     void Start()
@@ -28,13 +38,15 @@ public class Player : MonoBehaviour
         jumpForce = jumpForceAbs;
         _animator = GetComponent<Animator>();
         lastTimePressedSpace = Time.time;
+        coinCount = 0;
+        txtCoin.text = "0";
+        txtScore.text = "0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
+        txtScore.text = Math.Round(Time.time*10/2,0).ToString();
     }
 
     private void FixedUpdate()
@@ -48,7 +60,12 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Respawn")
         {
             isGround = true;
-           // GetComponent<AudioSource>().PlayOneShot(_audioClips[1]);
+            if (lastTimeLanding < Time.time - 0.3f)
+            {
+                //GetComponent<AudioSource>().PlayOneShot(_audioClips[1]);
+            }
+
+            lastTimeLanding = Time.time;
         }
     }
 
@@ -71,18 +88,17 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        
         if (Input.GetKey(KeyCode.Space) && isFreshJump)
         {
-            if (lastTimePressedSpace<Time.time-0.3f)
+            if (lastTimePressedSpace < Time.time - 0.3f)
             {
                 GetComponent<AudioSource>().PlayOneShot(_audioClips[0]);
             }
+
             isFreshJump = false;
             lastTimePressedSpace = Time.time;
-                
-            _rigidbody2D.AddForce(Vector2.up * freshJumpForce, ForceMode2D.Force);
 
+            _rigidbody2D.AddForce(Vector2.up * freshJumpForce, ForceMode2D.Force);
         }
         else if (Input.GetKey(KeyCode.Space) && canJump)
         {
@@ -112,6 +128,15 @@ public class Player : MonoBehaviour
             canJump = true;
         }
     }
-    
-    //link oc cho
+
+
+    public void eatCoins(GameObject coin)
+    {
+        GetComponent<AudioSource>().PlayOneShot(_audioClips[2]);
+        coinCount++;
+        txtCoin.text = coinCount.ToString();
+        Destroy(coin);
+        Debug.Log(coinCount);
+        //Debug.Break();
+    }
 }

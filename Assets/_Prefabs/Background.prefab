@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1158738778826198}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1158738778826198
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4835524684230738}
   - component: {fileID: 33248680362990366}
@@ -33,9 +33,9 @@ GameObject:
 --- !u!1 &1631029157498422
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4760921773220886}
   - component: {fileID: 108887820206550618}
@@ -49,7 +49,7 @@ GameObject:
 --- !u!4 &4760921773220886
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631029157498422}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
@@ -62,11 +62,11 @@ Transform:
 --- !u!4 &4835524684230738
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158738778826198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.154, y: 6.609, z: 0}
+  m_LocalPosition: {x: 0.11, y: 5.77, z: 10}
   m_LocalScale: {x: 21.48418, y: 15.236827, z: 1}
   m_Children:
   - {fileID: 4760921773220886}
@@ -76,7 +76,7 @@ Transform:
 --- !u!23 &23603050400440490
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158738778826198}
   m_Enabled: 1
@@ -88,7 +88,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 01e04c8fc6f084d7fbd540993c9ee92e, type: 2}
+  - {fileID: 2100000, guid: e706d2818071449019a62e1d6b547e20, type: 2}
+  - {fileID: 2100000, guid: c58cc6453e5de4fd7bcab76229a0b317, type: 2}
+  - {fileID: 2100000, guid: e706d2818071449019a62e1d6b547e20, type: 2}
+  - {fileID: 2100000, guid: e69b5d5e4c03040349f4894b380f3cac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,14 +114,14 @@ MeshRenderer:
 --- !u!33 &33248680362990366
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158738778826198}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64728715549978908
 MeshCollider:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158738778826198}
   m_Material: {fileID: 0}
@@ -132,7 +135,7 @@ MeshCollider:
 --- !u!108 &108887820206550618
 Light:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631029157498422}
   m_Enabled: 1
@@ -159,6 +162,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -168,7 +172,7 @@ Light:
 --- !u!114 &114664327856601300
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158738778826198}
   m_Enabled: 1
@@ -176,4 +180,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf1f5ae409604116968d9ff516a4889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedScroll: 0.3
+  speedScroll: 0.1

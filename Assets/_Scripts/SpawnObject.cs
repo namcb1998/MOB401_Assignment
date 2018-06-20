@@ -9,6 +9,7 @@ public class SpawnObject : MonoBehaviour
     private Vector2 whereToSpawn;
     private int randomType;
     private int lastType;
+    private int normalTypeCount;
     private bool canSpawn;
 
 
@@ -17,6 +18,7 @@ public class SpawnObject : MonoBehaviour
     {
         //maxTimeToSpawn = 1.2f;
         canSpawn = true;
+        normalTypeCount = 0;
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class SpawnObject : MonoBehaviour
 
     int getType()
     {
-        int type = Random.Range(0, groundArrays.Length-1);
+        int type = Random.Range(0, groundArrays.Length-2);
         if (type == lastType)
         {
             if (type == 3)
@@ -46,10 +48,24 @@ public class SpawnObject : MonoBehaviour
             {
                 type++;
             }
+            
         }
-
+        
 
         lastType = type;
+
+        if (normalTypeCount<=10)
+        {
+            normalTypeCount++;
+        }
+        else
+        {
+            type = groundArrays.Length-1;
+            normalTypeCount=0;
+        }
+        
+        
+        
         return type;
     }
 
